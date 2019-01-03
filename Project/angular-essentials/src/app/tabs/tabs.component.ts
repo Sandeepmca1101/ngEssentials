@@ -19,7 +19,7 @@ export class TabsComponent implements OnInit {
 
   getCharacter() {
     if (this.chosenList === 'all') {
-      console.log(this.chosenList + " ===================== ");
+      console.log(this.chosenList +  '=====================');
       return this.characters.slice();
     }
      return this.characters.filter((char) => {
