@@ -59,6 +59,9 @@ Directive are the feature which allow to enhance your template directly from tha
  *ngfor is a STRUCTURAL DIRETIVE from BrowserModule 
  *ngClass that please change the css of this class e.g [ngClass]={TypeScriptObjlike "'btn-primaty'"}
  
+Que : how to make tabs selected ?
+Ans : by using Active property  e.g  [ngClass]="{active: chosenList === 'all'}"
+ 
  
  
  
@@ -66,6 +69,9 @@ Directive are the feature which allow to enhance your template directly from tha
  
  
  Services ->managing data or state 
+         |- Create Service 
+		 |- do dependency injection by adding in the constructor 
+		 |- in component and providers and also add in app.module provider section 
  
  GIT
  +=============================================================

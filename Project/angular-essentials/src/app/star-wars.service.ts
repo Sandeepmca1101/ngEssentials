@@ -13,6 +13,12 @@ export class StarWarsService {
     }
      return this.characters.filter((char) => {
         return char.side === chosenList;
-     })
+     });
   }
+  onSideChoosen(charInfo) {
+      const pos = this.characters.findIndex((char) => {
+         return char.name === charInfo.name;
+       } );
+      this.characters[pos].side = charInfo.side;
+    }
 }
