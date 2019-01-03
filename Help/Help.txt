@@ -1,0 +1,81 @@
+ng is java script client side front end Framework
+
+Why Client Side ?
+*Aims to improve the user experience and improve the bussiness logic 
+ e.g clicking a link a immediately page opens is called better user expereince 
+these are single us 
+
+Que 1.Why Node JS
+Ans. Node Package manager which manage our depedencies and npm for testing the application we need server (Web application ) and CLI helps to achieve these things 
+
+Installation ?
+*To install CLI npm install install -g @angular/cli
+*ng new install Projectname	
+*ng serve to start on development server that host our application 
+
+
+Project Structure ?
+ |-e2e --having all the testcases 
+ |-node_modules
+ |-src
+    |-app 
+	|-assest--static assests like photos
+	|-environment--deve,testing ,or multi config
+	|-index.html
+	|-main.ts-starting part of the app
+	|-pollyfills.ts -different broweser compatiability
+	|-style.css
+	|-test.ts
+ |-9 json files (package.json,karma.confg.js,angular-cli.json,etc
+ 
+ Ques How app started?
+ Ans-in index.html there is no js code imports all things are added by CLI on runtime
+ main.ts->platformBrowser -->
+ component.ts->this application going to use these things or user defined feature 
+ 
+ TS features ?
+ |-Export can call in pther files 
+ |-Decorater-
+
+Que Component ?
+Ans:- selector-app-route / '.class' is also accepted but lint give error
+templaptUrl->this file holds the content when this selector found with the css mentioned in Style.
+
+To Get the DOM native element access you can use $event
+
+*FormsModule manage ngModel from @angular/forms
+
+Directive are the instruction that you placed in your template Componets are a 
+or 
+Directive are the feature which allow to enhance your template directly from that template .enter in the template and made
+ changes COMPONENTS ARE DIRECTIVES 
+
+**npm install bootstrap --save
+
+* we can directly include js files in the TS file like in componet.ts we can do import 'loadash' 
+
+* If we want to add new CS file or JS file we can add in angular.json file 
+ 
+ *ngfor is a STRUCTURAL DIRETIVE from BrowserModule 
+ *ngClass that please change the css of this class e.g [ngClass]={TypeScriptObjlike "'btn-primaty'"}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Services ->managing data or state 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 

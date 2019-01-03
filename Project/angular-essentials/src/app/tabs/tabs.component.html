@@ -1,0 +1,24 @@
+<div>
+  <ul class="nav nav-tabs">
+
+    <li role="presentation" [ngClass]="{active: chosenList ==='all'}" >
+    <a (click)="onChoose('all')" style="cursor: pointer" href="#" class="nav-item nav-link ">All
+     </a>
+    </li>
+      <li [ngClass]="{active: chosenList ==='light'}" role="presentation">
+          <a (click)= "onChoose('dark')" style="cursor: pointer" href="#" class="nav-item nav-link" >
+        Light
+      </a>
+    </li>
+      <li [ngClass]="{active: chosenList ==='dark'}" role="presentation">
+        <a (click)="onChoose('light')" style="cursor: pointer" href="#" class="nav-item nav-link">
+        Dark
+      </a></li>
+
+
+  </ul>
+  <!-- <app-list></app-list> -->
+   <!-- <app-list [characters]="getCharacter()" (sideAssigned)="onSideChoosen($event)"></app-list> -->
+   <app-list [characters]="getCharacter()"></app-list>
+</div>
+
