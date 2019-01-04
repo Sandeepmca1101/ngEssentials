@@ -1,11 +1,15 @@
  <div class="list-group">
    <app-item
-*ngFor="let char of characters"  [character]="char"
-(sideAssigned)="onSideAssigned($event)">
+*ngFor="let char of characters"  [character]="char">
 </app-item>
 
 </div>
 
+<!-- before code cleanup
+<app-item
+*ngFor="let char of characters"  [character]="char"
+(sideAssigned)="onSideAssigned($event)">
+</app-item> -->
 
  <!-- <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
       <div class="d-flex w-100 justify-content-between">

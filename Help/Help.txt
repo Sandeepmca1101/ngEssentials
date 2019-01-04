@@ -62,16 +62,52 @@ Directive are the feature which allow to enhance your template directly from tha
 Que : how to make tabs selected ?
 Ans : by using Active property  e.g  [ngClass]="{active: chosenList === 'all'}"
  
+Que: Validation on form ?
+Ans: Submitted for invalid property.
+     email  => <input type="email" email>  => Checks if a valid email address was entered
+     minlength  => <input type="text" minlength="5">  => Checks for minimum length
+     maxlength  => <input type="text" maxlength="20">  => Checks for maximum length
+     pattern  => <input type="text" pattern="[a-zA-Z ]*">  => Checks for a certain RegEx pattern  
+	 
+	 e.g *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span> and in input ngModel required
+     #nameCtrl="ngModel">
+	 
+	 **On button level type="submit" [disabled]="form.invalid"
  
  
  
- 
+ **** ng Dependency works only with classes that having decorater @Injectable ,
+      it allows ng to inject one service into another 
  
  
  Services ->managing data or state 
          |- Create Service 
 		 |- do dependency injection by adding in the constructor 
 		 |- in component and providers and also add in app.module provider section 
+		 
+Routing ? 
+   |- import in app.module -> RouterModule in import section 
+   |- then in app.module.ts create constatnt routes  of array having the path and compnent with last wild card 
+        e.g 
+		const routes = [
+		{ path: '' , component: TabsComponent },
+		{ path: 'new-character' , component : CreateCharacterComponent },
+		{ path: '**' , redirectTo: '/' }
+		];   
+		
+		WITH CHILDREN Routing
+		======================
+		  const routes = [
+			{ path: 'characters' , component: TabsComponent
+				, children: [
+						{ path: '', redirectTo: 'all', pathMatch: 'full' },
+						{ path: ':side', component: ListComponent }
+					]
+			},
+		
+	|-in imports sectoin of routermodule where u define RouterModule have to call forRoot(routes)
+	  e.g  RouterModule.forRoot(routes)
+		 
  
  GIT
  +=============================================================

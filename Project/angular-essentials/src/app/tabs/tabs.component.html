@@ -1,7 +1,22 @@
 <div>
   <ul class="nav nav-tabs">
 
-    <li role="presentation" [ngClass]="{active: chosenList === 'all'}" >
+      <li role="presentation"  routerLinkActive="active">
+          <a  routerLink="/characters/all" class="nav-item nav-link">All
+           </a>
+        </li>
+            <li role="presentation" routerLinkActive="active">
+                <a routerLink="/characters/light" class="nav-item nav-link" >
+              Light
+            </a>
+          </li>
+            <li role="presentation" routerLinkActive="active">
+              <a routerLink="/characters/dark" class="nav-item nav-link">
+              Dark
+            </a></li>
+
+    <!-- Before Routing  -->
+    <!-- <li role="presentation" [ngClass]="{active: chosenList === 'all'}" >
     <a (click)="onChoose('all')" style="cursor: pointer" href="#" class="nav-item nav-link ">All
      </a>
     </li>
@@ -13,12 +28,16 @@
       <li [ngClass]="{active: chosenList ==='dark'}" role="presentation">
         <a (click)="onChoose('light')" style="cursor: pointer" href="#" class="nav-item nav-link">
         Dark
-      </a></li>
+      </a></li> -->
 
 
   </ul>
   <!-- <app-list></app-list> -->
    <!-- <app-list [characters]="getCharacter()" (sideAssigned)="onSideChoosen($event)"></app-list> -->
-   <app-list [characters]="getCharacter()"></app-list>
+   <!-- <app-list [characters]="getCharacter()"></app-list> -->
+
+   <!-- After  children routing  -->
+  <router-outlet></router-outlet>
+
 </div>
 
