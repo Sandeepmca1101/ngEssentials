@@ -9,7 +9,7 @@ Que 1.Why Node JS
 Ans. Node Package manager which manage our depedencies and npm for testing the application we need server (Web application ) and CLI helps to achieve these things 
 
 Installation ?
-*To install CLI npm install install -g @angular/cli
+*To install CLI npm install  -g @angular/cli
 *ng new install Projectname	
 *ng serve to start on development server that host our application 
 
@@ -95,7 +95,7 @@ Routing ?
 		{ path: '**' , redirectTo: '/' }
 		];   
 		
-		WITH CHILDREN Routing
+		WITH CHILDREN Routing 
 		======================
 		  const routes = [
 			{ path: 'characters' , component: TabsComponent
@@ -107,7 +107,32 @@ Routing ?
 		
 	|-in imports sectoin of routermodule where u define RouterModule have to call forRoot(routes)
 	  e.g  RouterModule.forRoot(routes)
-		 
+	  
+RXJS
+  |-different part can publish different data on various events and you can listen that events take the data and do whatever your requirements
+  |- Subject is like EventEmitter<Void>();
+  
+ ** For better memory we have to unsubscribe the unwanted events after use 
+    |- OnDestroy Interface that having OnDestroy method which helps to save memory
+          ngOnDestroy(){
+			this.subscription.unsubscribe();
+			}	
+	
+Observable have 3 param 
+   |-params
+   |-error
+   |-(){}
+
+     ngOnInit() {
+		this.activatedRoute.params.subscribe(
+		 (params) => {
+		  this.characters = this.swService.getCharacter(params.side);
+         },
+		 (error) => {},
+		 () => {}
+        );
+       }   
+	   
  
  GIT
  +=============================================================
