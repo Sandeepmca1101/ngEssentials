@@ -1,9 +1,10 @@
 ng is java script client side front end Framework
 
-Why Client Side ?
+Why Client Side ?   
 *Aims to improve the user experience and improve the bussiness logic 
  e.g clicking a link a immediately page opens is called better user expereince 
 these are single us 
+  *****************============> run only in browser 
 
 Que 1.Why Node JS
 Ans. Node Package manager which manage our depedencies and npm for testing the application we need server (Web application ) and CLI helps to achieve these things 
@@ -132,6 +133,64 @@ Observable have 3 param
 		 () => {}
         );
        }   
+	   
+	  |- ng using observable to send the req and get the response
+	  
+-Http
+ ==========
+   |-in import section of app.module.js add HttpModule from the package '@angular/http'
+   |-inject this service in constructor and create a local variable  
+   |- this.http.get('https://swapi.co/api/people')   //not called any req
+   |- this.http.get('https://swapi.co/api/people').subscribe()   //with the help of obseravable now req will be triggered
+   
+   No 'Access-Control-Allow-Origin' header is present on the requested resource” error when Postman does not?
+    --diable-web-security in the browser shortcut --target properties 
+	
+	****example of getting values from request and modification 
+		fetchCharacters() {
+			this.http.get('http://swapi.co/api/people')
+			.pipe(map((response: Response) => {
+			console.log('FROM PIPE ' + response);
+			const data = response.json();
+			const extractedChars = data.results;
+			const chars = extractedChars.map((char) => {
+              return {name: char.name, side: ''};
+				} );
+				return chars;
+				})
+				)
+
+		  .subscribe(  // , this.requestOptions
+			(data) => {
+				console.log(data);
+				this.characters = data;
+				}
+				);
+			// this.http.post('https://swapi.co/api/' ,{ });
+		  }
+		  
+		  values are not immediately reflected on UI for that take the help of Subject(observable) 
+				* A Subject is a special type of Observable that allows values to be multicasted to many Observables. Subjects are like EventEmitters.
+				  Every Subject is an Observable and an Observer.You can subscribe to a Subject,and you can call next to feed values as well as error and complete.
+ 
+CODE CLEANING 
+======================
+Common Module => Exports all the basic Angular directives and pipes, such as `NgIf`, `NgForOf`, `DecimalPipe`, and so on.Re-exported by `BrowserModule`, which is included      automatically in the root
+ * `AppModule` when you create a new app with the CLI `new` command.
+ *
+ * * The `providers` options configure the NgModule's injector to provide
+ * localization dependencies to members.
+ * * The `exports` options make the declared directives and pipes available for import
+ * by other NgModules. 
+		     
+			 
+	Deployment 
+    ==================
+    ng build ---> it will not clean code 
+    ng build --prod it will create minified code 	 and create dist folder that having importantly index file 
+	while deploying code on the server --><base href="/"> means name if the project otherwise empty 
+	and then upload the content of the build folder .
+ 
 	   
  
  GIT
